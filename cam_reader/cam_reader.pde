@@ -1,4 +1,5 @@
 import processing.video.*;
+import glvideo.*;
 
 Capture cam;
 
@@ -18,7 +19,7 @@ void setup() {
     
     // The camera can be initialized directly using an 
     // element from the array returned by list():
-    cam = new Capture(this, 640, 480, "USB2.0 PC CAMERA", 30);
+    cam = new Capture(this, 320, 240, "USB2.0 PC CAMERA", 30);
     cam.start();     
   }      
 }
@@ -31,4 +32,8 @@ void draw() {
   // The following does the same, and is faster when just drawing the image
   // without any additional resizing, transformations, or tint.
   //set(0, 0, cam);
+}
+
+void captureEvent(Capture cam){
+  cam.read();
 }
